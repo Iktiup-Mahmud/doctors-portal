@@ -5,11 +5,18 @@ import AvailableAppoinments from './AvailableAppoinments/AvailableAppoinments';
 const Appoinment = () => {
     const [selectedDate, setSelectedDate] = useState(new Date())
 
+    const changeDate = (date) => {
+        if(!date){
+            return
+        }
+        setSelectedDate(date)
+    }
+
     return (
         <div className=''>
             <AppoinmentBanner
                 selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
+                setSelectedDate={changeDate}
             ></AppoinmentBanner>
             <AvailableAppoinments 
                 selectedDate={selectedDate}

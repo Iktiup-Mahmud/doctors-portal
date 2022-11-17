@@ -7,7 +7,7 @@ const NavBar = () => {
 
     const handelLogout = () => {
         logOut()
-        .then( res => console.log('lo s'))
+        .then( res => console.log('logout successfull'))
         .catch( err => console.log(err) )
     }
 
