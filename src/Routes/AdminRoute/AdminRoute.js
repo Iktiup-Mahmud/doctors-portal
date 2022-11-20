@@ -10,7 +10,7 @@ const AdminRoute = ({ children }) => {
 
     if (loading || isAdminLoading) {
         return <div className='text-center'>
-                    <progress className='progress progress-error w-56'></progress>
+            <progress className='progress progress-error w-56'></progress>
                 </div>
     }
 
