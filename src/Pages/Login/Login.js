@@ -27,6 +27,7 @@ const Login = () => {
         .then( res => {
             const user = res.user;
             console.log(user)
+            console.log(user.email)
             setLoginUserEmail(user.email)
         })
         .catch( err => {
