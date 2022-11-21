@@ -24,7 +24,7 @@ const AddDoctor = () => {
         const image = data.img[0]
         const formData = new FormData()
         formData.append('image', image)
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgHostKey}`
+        const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
@@ -45,7 +45,7 @@ const AddDoctor = () => {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            authorization: `bearer ${localStorage.getItem('accesToken')}`
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(doctor)
                     })
@@ -55,6 +55,7 @@ const AddDoctor = () => {
                             toast.success(`${data.name} added successfully`)
                             navigate('/dashboard/manage-doctors')
                         })
+                        .catch(err => console.error(err))
                 }
             })
     }
@@ -106,7 +107,7 @@ const AddDoctor = () => {
                         placeholder="img" className="input input-bordered w-full max-w-xs" />
                     {errors.img && <p className='text-red-600 mt-2' role="alert">{errors.img?.message}</p>}
                 </div>
-                <input type="submit" className='btn btn-accent w-full mt-3' value='Login' />
+                <input type="submit" className='btn btn-accent w-full mt-3' value='Add Doctor' />
             </form>
         </div>
     );
